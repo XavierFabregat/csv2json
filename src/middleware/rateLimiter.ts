@@ -1,20 +1,5 @@
-import redis from "../models/redis";
-import { promisify } from "util";
+import { getAsync, setAsync } from "../models/redis";
 import { Request, Response, NextFunction } from "express";
-import { Callback, RedisKey } from "ioredis";
-
-const getAsync: (
-  key: RedisKey,
-  callback?: Callback<string | null>
-) => Promise<string | null> = promisify(redis.get).bind(redis);
-const setAsync: (
-  key: RedisKey,
-  value: string | number | Buffer
-) => Promise<string | null> = promisify(redis.set).bind(redis);
-// const delAsync: (
-//   key: RedisKey,
-//   callback?: Callback<string | null>
-// ) => Promise<string | null> = promisify(redis.del).bind(redis);
 
 const rateLimiter = async (req: Request, res: Response, next: NextFunction) => {
   const { ip } = req;
