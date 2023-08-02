@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <title>CSV 2 JSON</title>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="form-wrapper">
+        <h1>CSV 2 JSON</h1>
+        <form
+          id="csv-form"
+          accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+        >
+          <input type="file" name="file" />
+          <input type="submit" value="Upload" />
+        </form>
+      </div>
+      <div class="result-json-box">
+        <div class="button-container">
+          <button id="copy-btn" class="copy-btn">
+            <svg
+              id="Copy_24"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect
+                width="24"
+                height="24"
+                stroke="none"
+                fill="#000000"
+                opacity="0"
+              />
+              <g transform="matrix(0.83 0 0 0.83 12 12)">
+                <g>
+                  <g transform="matrix(1 0 0 1 2 2)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-14, -14)"
+                      d="M 20 6 L 8 6 C 6.895 6 6 6.895 6 8 L 6 20 C 6 21.105 6.895 22 8 22 L 20 22 C 21.105 22 22 21.105 22 20 L 22 8 C 22 6.895 21.105 6 20 6 z M 20 20 L 8 20 L 8 8 L 20 8 L 20 20 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(1 0 0 1 -2 -2)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-10, -10)"
+                      d="M 4 4 L 18 4 L 18 2 L 4 2 C 2.895 2 2 2.895 2 4 L 2 18 L 4 18 L 4 4 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(1 0 0 1 2 2)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 0.3;
+                      "
+                      transform=" translate(-14, -14)"
+                      d="M 7 7 L 21 7 L 21 21 L 7 21 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button id="clear-btn" class="clear-btn">
+            <svg
+              id="Delete_Trash_24"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <rect
+                width="24"
+                height="24"
+                stroke="none"
+                fill="#000000"
+                opacity="0"
+              />
+
+              <g transform="matrix(0.83 0 0 0.83 12 12)">
+                <g>
+                  <g transform="matrix(1 0 0 1 0 -1.5)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-12, -10.5)"
+                      d="M 11 18 L 9 18 L 9 7 L 11 7 L 11 18 z M 15 18 L 13 18 L 13 7 L 15 7 L 15 18 z M 4 3 L 20 3 L 20 5 L 4 5 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(1 0 0 1 0 -8.5)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-12, -3.5)"
+                      d="M 17 5 L 14 2 L 10 2 L 7 5 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(1 0 0 1 0 0.5)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-12, -12.5)"
+                      d="M 15 22 L 7 22 C 5.9 22 5 21.1 5 20 L 5 3 L 19 3 L 19 15 L 17 15 L 17 5 L 7 5 L 7 20 L 15 20 L 15 22 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(0.71 -0.71 0.71 0.71 8.02 8.49)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-20, -20.5)"
+                      d="M 19 16.5 L 21 16.5 L 21 24.5 L 19 24.5 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(0.71 -0.71 0.71 0.71 8.02 8.49)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 1;
+                      "
+                      transform=" translate(-20, -20.5)"
+                      d="M 16 19.5 L 24 19.5 L 24 21.5 L 16 21.5 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                  <g transform="matrix(1 0 0 1 -0.5 0)">
+                    <path
+                      style="
+                        stroke: none;
+                        stroke-width: 1;
+                        stroke-dasharray: none;
+                        stroke-linecap: butt;
+                        stroke-dashoffset: 0;
+                        stroke-linejoin: miter;
+                        stroke-miterlimit: 4;
+                        fill: rgb(0, 0, 0);
+                        fill-rule: nonzero;
+                        opacity: 0.3;
+                      "
+                      transform=" translate(-11.5, -12)"
+                      d="M 16 15 L 17 15 L 17 4 L 6 4 L 6 20 L 15 20 L 15 16 C 15 15.4 15.4 15 16 15 z"
+                      stroke-linecap="round"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+        <pre id="result-json"></pre>
+      </div>
+    </div>
+    <script src="/js/main.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

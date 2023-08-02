@@ -1,0 +1,145 @@
+*,
+** {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e6e6e6;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.button-container {
+  position: absolute;
+  height: 50px;
+  width: 100px;
+  right: 4em;
+  top: 5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+#result-json {
+  overflow-y: scroll;
+  width: 100%;
+  background: rgba(197, 182, 182, 0.343);
+  height: 100%;
+  border-radius: 0.5em;
+}
+
+.copy-btn,
+.clear-btn {
+  position: relative;
+  /* any suugesstions copilot */
+  top: 0;
+  right: 0;
+  background: #eee6e6;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  color: #4d4d4d;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-left: 1em;
+}
+
+.copy-btn:hover,
+.clear-btn:hover {
+  background: #bfbaba;
+  cursor: pointer;
+}
+
+.result-json-box {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2em;
+  border-left: 1px solid #ccc;
+}
+
+.form-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 10%;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 1em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+h1 {
+  text-align: center;
+  color: #4d4d4d;
+  text-transform: uppercase;
+  font-family: "Bitter", serif;
+}
+
+@media (max-width: 1000px) {
+  .page-wrapper {
+    flex-direction: column;
+    overflow-y: scroll;
+    min-width: 500px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    width: 100%;
+    min-width: 400px;
+  }
+
+  .result-json-box {
+    position: relative;
+    border-left: none;
+    border-top: 1px solid #ccc;
+    padding: 1em;
+    min-height: 500px;
+    width: 90%;
+    min-width: 400px;
+  }
+
+  .button-container {
+    position: absolute;
+    top: 4em;
+    right: 3em;
+    width: 100px;
+  }
+}
