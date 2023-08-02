@@ -17,8 +17,7 @@ describe("csvParser", () => {
       fs.readFileSync(__dirname + "/mocks/INVALID_FILE.csv")
     );
     try {
-      const results = await csvParser(buffer);
-      console.log(results); // This should not be called
+      await csvParser(buffer); //should fail
     } catch (error) {
       console.log(error);
       expect(error.message).toEqual("Invalid csv file");
