@@ -1,8 +1,10 @@
 import Redis from "ioredis";
 import { promisify } from "util";
 import { Callback, RedisKey } from "ioredis";
+import { __prod__ } from "../../constants";
+const { REDIS_URL } = process.env;
 
-const redis = new Redis({});
+const redis = new Redis(__prod__ ? REDIS_URL! : "", { family: 6 });
 
 export const getAsync: (
   key: RedisKey,
