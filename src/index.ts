@@ -1,9 +1,7 @@
 import "./loadEnv";
-import Express from "express";
+import app from "./app";
 
 const { PORT, HOST } = process.env;
-
-const app = Express();
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://${HOST}:${PORT}`);
