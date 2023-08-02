@@ -7,10 +7,10 @@ afterAll(async () => {
 });
 
 describe("Test the root path", () => {
-  test("It should response the GET method", async () => {
+  test("It should response the GET method with an html file", async () => {
     const response = await app.get("/");
     expect(response.status).toBe(200);
-    expect(response.text).toEqual("Hello World!");
+    expect(response.type).toBe("text/html");
   });
 
   test("It should not response the POST method", async () => {
